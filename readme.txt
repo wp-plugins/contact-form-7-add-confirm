@@ -13,10 +13,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 == Description ==
 
 "Contact Form 7 add confirm" can add confirm step to "Contact Form 7".
-"Contact Form 7 add confirm"�Ɋm�F��ʂ�ǉ�����v���O�C���ł��B
+"Contact Form 7 add confirm"に確認画面を追加するプラグインです。
 
 This plug-in is not related to the developer of the "Contact Form 7".
-���̃v���O�C���̍�҂�Contact Form 7�v���O�C���J�����Ƃ͊֌W����܂���A�����Ӊ������B
+このプラグインの作者はContact Form 7プラグイン開発元とは関係ありません、ご注意下さい。
 
 == Installation ==
 

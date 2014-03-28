@@ -7,7 +7,7 @@ Author: Yuichiro ABE
 Author URI: http://www.eyeta.jp/
 Text Domain: contact-form-7-confirm
 Domain Path: /languages/
-Version: 1.3.8.2
+Version: 1.3.8.3
 */
 
 /*  Copyright 2014- Yuichiro ABE (email: y.abe at eyeta.jp)
@@ -40,10 +40,10 @@ Version: 1.3.8.2
 　checkboxでのバグの修正
 　「wpcf7c-anchor」クラスを指定しておくと確認、戻るなどの際の
 　　頭出しの座標に利用されるようにしました。
-1.3.8.2
+1.3.8.3
 　戻って編集ボタンのデフォルトテキストが英語だった件を修正
  */
-define( 'WPCF7C_VERSION', '1.3.8.2' );
+define( 'WPCF7C_VERSION', '1.3.8.3' );
 
 if ( ! defined( 'WPCF7C_PLUGIN_BASENAME' ) )
 	define( 'WPCF7C_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );

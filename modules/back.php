@@ -25,7 +25,7 @@ function wpcf7c_back_shortcode_handler( $tag ) {
 	$value = isset( $tag->values[0] ) ? $tag->values[0] : '';
 
 	if ( empty( $value ) )
-		$value = __( 'Backedit', 'contact-form-7-confirm' );
+		$value = __( 'Backedit', 'contact-form-7-add-confirm' );
 
 	$atts['type'] = 'button';
 	$atts['value'] = $value;

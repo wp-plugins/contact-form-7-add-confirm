@@ -18,14 +18,14 @@ function wpcf7c_confirm_shortcode_handler( $tag ) {
 
 	$atts = array();
 
-	$atts['class'] = $tag->get_class_option( $class ) . " wpcf7c-elm-step1 wpcf7c-btn-confirm";
+	$atts['class'] = $tag->get_class_option( $class ) . " wpcf7c-elm-step1 wpcf7c-btn-confirm wpcf7c-force-hide";
 	$atts['id'] = $tag->get_option( 'id', 'id', true );
 	$atts['tabindex'] = $tag->get_option( 'tabindex', 'int', true );
 
 	$value = isset( $tag->values[0] ) ? $tag->values[0] : '';
 
 	if ( empty( $value ) )
-		$value = __( 'Confirm', 'contact-form-7-confirm' );
+		$value = __( 'Confirm', 'contact-form-7-add-confirm' );
 
 	$atts['type'] = 'submit';
 	$atts['value'] = $value;

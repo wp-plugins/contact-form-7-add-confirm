@@ -4,7 +4,7 @@ Donate link:
 Tags: contact, form, contact form
 Requires at least: 3.8
 Tested up to: 3.8.1
-Stable tag: 1.3.8.4
+Stable tag: 1.3.8.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,7 +36,9 @@ An answer to that question.
 
 
 == Changelog ==
-
+1.3.8.5
+ 言語ファイルの読み込みバグ対応
+ Javascript非対応のブラウザの場合、送信ボタンを初期から表示するように変更
 
 
 == Upgrade notice ==

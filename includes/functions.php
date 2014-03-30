@@ -11,7 +11,7 @@
 function wpcf7c_load_textdomain( $locale = null ) {
 	global $l10n;
 
-	$domain = 'contact-form-7-confirm';
+	$domain = 'contact-form-7-add-confirm';
 
 	if ( get_locale() == $locale ) {
 		$locale = null;

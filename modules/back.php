@@ -46,7 +46,7 @@ function wpcf7c_add_tag_generator_back() {
 	if ( ! function_exists( 'wpcf7_add_tag_generator' ) )
 		return;
 
-	wpcf7_add_tag_generator( 'back', __( 'Back button', 'contact-form-7-confirm' ),
+	wpcf7_add_tag_generator( 'back', __( 'Back button', 'contact-form-7-add-confirm' ),
 		'wpcf7-tg-pane-back', 'wpcf7c_tg_pane_back', array( 'nameless' => 1 ) );
 }
 

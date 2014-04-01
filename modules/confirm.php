@@ -46,7 +46,7 @@ function wpcf7c_add_tag_generator_confirm() {
 	if ( ! function_exists( 'wpcf7_add_tag_generator' ) )
 		return;
 	//eyeta_log("wpcf7c_add_tag_generator_confirm");
-	wpcf7_add_tag_generator( 'confirm', __( 'Confirm button', 'contact-form-7-confirm' ),
+	wpcf7_add_tag_generator( 'confirm', __( 'Confirm button', 'contact-form-7-add-confirm' ),
 		'wpcf7-tg-pane-confirm', 'wpcf7c_tg_pane_confirm', array( 'nameless' => 1 ) );
 }
 

@@ -11,6 +11,11 @@
 add_action( 'init', 'wpcf7c_control_init', 10 );
 function wpcf7c_control_init() {
 	wpcf7c_ajax_json_echo();
+
+	// キャプチャ用フックの差替え
+	remove_filter( 'wpcf7_validate_captchar', 'wpcf7_captcha_validation_filter', 10 );
+	add_filter( 'wpcf7_validate_captchar', 'wpcf7c_captcha_validation_filter', 10, 2 );
+
 }
 
 
@@ -50,10 +55,42 @@ function wpcf7c_ajax_json_echo_step1($items, $result) {
 		}
 		$items["message"] = "";
 		$items["mailSent"] = false;
+
+		unset($items['captcha']);
+
 	}
 
 	return $items;
 }
+
+/*
+ * captcha対策
+ */
+
+function wpcf7c_captcha_validation_filter( $result, $tag ) {
+	$tag = new WPCF7_Shortcode( $tag );
+
+	$type = $tag->type;
+	$name = $tag->name;
+
+	$captchac = '_wpcf7_captcha_challenge_' . $name;
+
+	$prefix = isset( $_POST[$captchac] ) ? (string) $_POST[$captchac] : '';
+	$response = isset( $_POST[$name] ) ? (string) $_POST[$name] : '';
+
+	if ( 0 == strlen( $prefix ) || ! wpcf7_check_captcha( $prefix, $response ) ) {
+		$result['valid'] = false;
+		$result['reason'][$name] = wpcf7_get_message( 'captcha_not_match' );
+	}
+
+	if(0 != strlen( $prefix ) && $_POST["_wpcf7c"] == "step1") {
+	} else if ( 0 != strlen( $prefix )) {
+		wpcf7_remove_captcha( $prefix );
+	}
+
+	return $result;
+}
+
 
 function wpcf7c_ajax_json_echo_step2($items, $result) {
 	//eyeta_log("wpcf7c_ajax_json_echo_step1");

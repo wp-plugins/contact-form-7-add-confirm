@@ -4,7 +4,7 @@ Donate link:
 Tags: contact, form, contact form
 Requires at least: 3.8
 Tested up to: 3.8.1
-Stable tag: 1.3.8.5
+Stable tag: 1.3.8.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,3 +47,5 @@ An answer to that question.
 1.3.8.6
  言語ファイルの読み込みバグ対応
  captchaで正常に動作していなかった点を修正
+1.3.8.7
+ ver記載ミス

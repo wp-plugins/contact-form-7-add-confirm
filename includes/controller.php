@@ -20,7 +20,7 @@ function wpcf7c_control_init() {
 
 
 function wpcf7c_ajax_json_echo() {
-	switch($_POST["_wpcf7c"]) {
+	if (isset($_POST['_wpcf7c'])) switch($_POST["_wpcf7c"]) {
 		case "step1":
 	//		$result = apply_filters( 'wpcf7_before_send_mail', $result );
 			add_action("wpcf7_before_send_mail", "wpcf7c_before_send_mail_step1", 10, 2);

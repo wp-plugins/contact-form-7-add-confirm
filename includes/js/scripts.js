@@ -1,15 +1,15 @@
 
 
-(function($){
+(function(jQuery){
 
 
 
-	if($(".wpcf7c-elm-step1").size() != 0) {
+	if(jQuery(".wpcf7c-elm-step1").size() != 0) {
 		// 対象有り
 
-		$(".wpcf7c-elm-step1").each(function(){
+		jQuery(".wpcf7c-elm-step1").each(function(){
 			// 親のフォームを検索
-			var parent = $(this).parents("form");
+			var parent = jQuery(this).parents("form");
 			if(parent.attr("wpcf7c") == undefined) {
 				// elm-submitをsubmitボタンへもセット
 				parent.find(".wpcf7-submit").addClass("wpcf7c-elm-step2").addClass("wpcf7c-force-hide");
@@ -75,8 +75,8 @@ var wpcf7c_to_step1 = function(parent, scroll){
 	if(scroll) {
 		var speed = 1000;
 		var position = parent.offset().top;
-		if($('.wpcf7c-anchor').size() != 0) {
-			position = $('.wpcf7c-anchor').offset().top;
+		if(jQuery('.wpcf7c-anchor').size() != 0) {
+			position = jQuery('.wpcf7c-anchor').offset().top;
 		}
 		jQuery("html, body").animate({scrollTop:position}, speed, "swing");
 	}
@@ -88,7 +88,7 @@ var wpcf7c_step1 = function(unit_tag){
 	// 確認完了
 
 	// 対象フォーム検索
-	//var elm_unit_tag = $.find("input[name=_wpcf7_unit_tag]");
+	//var elm_unit_tag = jQuery.find("input[name=_wpcf7_unit_tag]");
 	jQuery(jQuery.find("input[name=_wpcf7_unit_tag]")).each(function(){
 		if(jQuery(this).val() == unit_tag) {
 			var parent = jQuery(this).parents("form");
@@ -151,8 +151,8 @@ var wpcf7c_step1 = function(unit_tag){
 			// スムーズスクロール
 			var speed = 1000;
 			var position = parent.offset().top;
-			if($('.wpcf7c-anchor').size() != 0) {
-				position = $('.wpcf7c-anchor').offset().top;
+			if(jQuery('.wpcf7c-anchor').size() != 0) {
+				position = jQuery('.wpcf7c-anchor').offset().top;
 			}
 			jQuery("html, body").animate({scrollTop:position}, speed, "swing");
 

@@ -95,7 +95,7 @@ function wpcf7c_captcha_validation_filter( $result, $tag ) {
 function wpcf7c_ajax_json_echo_step2($items, $result) {
 	//eyeta_log("wpcf7c_ajax_json_echo_step1");
 	if($result['mail_sent']) {
-		if($items["onSubmit"] == null) {
+		if(!isset($items["onSubmit"]) || $items["onSubmit"] == null) {
 			$items["onSubmit"] = array("wpcf7c_step2('" . $_POST['_wpcf7_unit_tag'] . "');");
 		} else {
 			$items["onSubmit"][] = "wpcf7c_step2('" . $_POST['_wpcf7_unit_tag'] . "');";

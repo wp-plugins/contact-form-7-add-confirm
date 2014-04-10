@@ -4,7 +4,7 @@ Donate link:
 Tags: contact, form, contact form
 Requires at least: 3.8
 Tested up to: 3.8.1
-Stable tag: 1.3.8.8
+Stable tag: 1.3.8.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,6 +49,12 @@ An answer to that question.
 
 1.3.8.8
  「Notice: Undefined index」が出ていた箇所を修正
-== Upgrade notice ==
-1.3.8.8
+
+1.3.8.9
  「Notice: Undefined index」が出ていた箇所を修正
+ javascript上で$を利用しないように変更
+== Upgrade notice ==
+1.3.8.9
+ 「Notice: Undefined index」が出ていた箇所を修正
+ javascript上で$を利用しないように変更
+

@@ -48,7 +48,7 @@ function wpcf7c_before_send_mail_step1(&$cls) {
 function wpcf7c_ajax_json_echo_step1($items, $result) {
 	//eyeta_log("wpcf7c_ajax_json_echo_step1");
 	if($result['mail_sent']) {
-		if($items["onSubmit"] == null) {
+		if(!isset($items["onSubmit"]) || $items["onSubmit"] == null) {
 			$items["onSubmit"] = array("wpcf7c_step1('" . $_POST['_wpcf7_unit_tag'] . "');");
 		} else {
 			$items["onSubmit"][] = "wpcf7c_step1('" . $_POST['_wpcf7_unit_tag'] . "');";

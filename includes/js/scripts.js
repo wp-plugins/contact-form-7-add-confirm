@@ -27,9 +27,9 @@
 				//parent.find("input[name=_wpcf7]").val("");
 
 				// 不要要素非表示
-				parent.find(".wpcf7c-elm-step1").removeClass("wpcf7c-force-hide");
 				parent.find(".wpcf7c-elm-step2").addClass("wpcf7c-force-hide");
 				parent.find(".wpcf7c-elm-step3").addClass("wpcf7c-force-hide");
+				parent.find(".wpcf7c-elm-step1").removeClass("wpcf7c-force-hide");
 
 				// 戻って編集ボタン挙動
 				parent.find(".wpcf7c-btn-back").on("click", function(){
@@ -59,9 +59,9 @@ var wpcf7c_to_step1 = function(parent, scroll){
 
 	jQuery(".wpcf7c-conf-hidden").remove();
 
-	parent.find(".wpcf7c-elm-step1").removeClass("wpcf7c-force-hide");
 	parent.find(".wpcf7c-elm-step2").addClass("wpcf7c-force-hide");
 	parent.find(".wpcf7c-elm-step3").addClass("wpcf7c-force-hide");
+	parent.find(".wpcf7c-elm-step1").removeClass("wpcf7c-force-hide");
 
 	parent.find("input[name=_wpcf7c]").val("step1");
 
@@ -141,8 +141,8 @@ var wpcf7c_step1 = function(unit_tag){
 
 			// 表示切替
 			parent.find(".wpcf7c-elm-step1").addClass("wpcf7c-force-hide");
-			parent.find(".wpcf7c-elm-step2").removeClass("wpcf7c-force-hide");
 			parent.find(".wpcf7c-elm-step3").addClass("wpcf7c-force-hide");
+			parent.find(".wpcf7c-elm-step2").removeClass("wpcf7c-force-hide");
 
 			parent.find(".ajax-loader").removeClass("wpcf7c-force-hide");
 

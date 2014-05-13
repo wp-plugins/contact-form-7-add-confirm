@@ -28,10 +28,15 @@ function wpcf7c_ajax_json_echo() {
 			//$items = apply_filters( 'wpcf7_ajax_json_echo', $items, $result );
 			add_filter("wpcf7_ajax_json_echo", "wpcf7c_ajax_json_echo_step1", 10, 3);
 
+			// flamingo対策
+			remove_action( 'wpcf7_submit', 'wpcf7_flamingo_submit');
+
+
 			break;
 		case "step2":
 			//$items = apply_filters( 'wpcf7_ajax_json_echo', $items, $result );
 			add_filter("wpcf7_ajax_json_echo", "wpcf7c_ajax_json_echo_step2", 10, 3);
+
 
 			break;
 	}

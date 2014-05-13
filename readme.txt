@@ -4,7 +4,7 @@ Donate link:
 Tags: contact, form, contact form
 Requires at least: 3.8
 Tested up to: 3.9
-Stable tag: 1.3.8.10
+Stable tag: 1.3.8.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,7 +58,9 @@ An answer to that question.
  デグレしてしまっていた箇所の修正
  javascriptのaddClassとremoveClassの順序を変更
 
+1.3.8.11
+ flamingoプラグインで確認ボタンクリック時も記録されてしまう問題を修正
+
 == Upgrade notice ==
-1.3.8.10
- デグレしてしまっていた箇所の修正
- javascriptのaddClassとremoveClassの順序を変更
+1.3.8.11
+ flamingoプラグインで確認ボタンクリック時も記録されてしまう問題を修正

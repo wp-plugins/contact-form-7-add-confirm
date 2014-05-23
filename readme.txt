@@ -4,7 +4,7 @@ Donate link:
 Tags: contact, form, contact form
 Requires at least: 3.8
 Tested up to: 3.9.1
-Stable tag: 1.3.8.12
+Stable tag: 1.3.8.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,5 +65,7 @@ An answer to that question.
  Contact Form DBプラグインで確認ボタンクリック時に記録されてしまう問題を修正
 
 == Upgrade notice ==
-1.3.8.12
- Contact Form DBプラグインで確認ボタンクリック時に記録されてしまう問題を修正
+1.3.8.13
+ 「on_confirm」オプションを追加、確認画面表示時に独自のJavascriptを追加できるようにしました。
+ 編集に戻る際は、ボタンに直接イベントをつけて下さい。
+

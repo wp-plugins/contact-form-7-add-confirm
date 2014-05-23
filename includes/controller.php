@@ -79,6 +79,17 @@ function wpcf7c_ajax_json_echo_step1($items, $result) {
 		} else {
 			$items["onSubmit"][] = "wpcf7c_step1('" . $_POST['_wpcf7_unit_tag'] . "');";
 		}
+
+		// オプションによる追加チェック
+		$form = WPCF7_ContactForm::get_current();
+		$on_confirm = $form->additional_setting( 'on_confirm', false );
+		if ( ! empty( $on_confirm ) ) {
+			foreach($on_confirm as $key => $on_confirm_func) {
+				$items["onSubmit"][] = wpcf7_strip_quote( $on_confirm_func );
+			}
+		}
+
+
 		$items["message"] = "";
 		$items["mailSent"] = false;
 

@@ -31,6 +31,27 @@ function wpcf7c_ajax_json_echo() {
 			// flamingo対策
 			remove_action( 'wpcf7_submit', 'wpcf7_flamingo_submit');
 
+			// Contact Form DB対策
+			//remove_action( 'wpcf7_before_send_mail', 'wpcf7_flamingo_submit');
+			global $wp_filter, $merged_filters;
+			if($wp_filter["wpcf7_before_send_mail"]) {
+				foreach($wp_filter["wpcf7_before_send_mail"] as $priority => $actions) {
+					foreach($actions as $key => $action) {
+						if(is_array($action["function"])) {
+							if(is_object($action["function"][0])) {
+								if(get_class($action["function"][0]) == "CF7DBPlugin") {
+									if($action["function"][1] == "saveFormData") {
+										unset($wp_filter["wpcf7_before_send_mail"][$priority][$key]);
+										if ( empty($wp_filter["wpcf7_before_send_mail"][$priority]) )
+											unset($wp_filter["wpcf7_before_send_mail"][$priority]);
+										unset($merged_filters["wpcf7_before_send_mail"]);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 
 			break;
 		case "step2":

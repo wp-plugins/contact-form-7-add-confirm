@@ -50,7 +50,7 @@ function wpcf7c_add_tag_generator_confirm() {
 		'wpcf7-tg-pane-confirm', 'wpcf7c_tg_pane_confirm', array( 'nameless' => 1 ) );
 }
 
-function wpcf7c_tg_pane_confirm( &$contact_form ) {
+function wpcf7c_tg_pane_confirm( $contact_form ) {
 ?>
 <div id="wpcf7-tg-pane-confirm" class="hidden">
 <form action="">

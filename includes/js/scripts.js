@@ -73,12 +73,8 @@ var wpcf7c_to_step1 = function(parent, scroll){
 
 	// スムーズスクロール
 	if(scroll) {
-		var speed = 1000;
-		var position = parent.offset().top;
-		if(jQuery('.wpcf7c-anchor').size() != 0) {
-			position = jQuery('.wpcf7c-anchor').offset().top;
-		}
-		jQuery("html, body").animate({scrollTop:position}, speed, "swing");
+		// スムーズスクロール
+		setTimeout(function() { wpcf7c_scroll(parent.attr("name")) }, 100);
 	}
 
 }
@@ -98,6 +94,12 @@ var wpcf7c_step1 = function(unit_tag){
 			responseOutput.addClass("wpcf7c-force-hide");
 
 			// 確認画面表示
+			// テキストエリアを伸ばす
+			parent.find("textarea").each(function(){
+				if(this.scrollHeight > this.offsetHeight){
+					this.style.height = (this.scrollHeight + 10) + 'px';
+				}
+			});
 			parent.find("textarea").attr("readonly", true).addClass("wpcf7c-conf");
 			parent.find("select").each(function(){
 				jQuery(this).attr("readonly", true).attr("disabled", true).addClass("wpcf7c-conf");
@@ -131,7 +133,7 @@ var wpcf7c_step1 = function(unit_tag){
 
 						break;
 					default:
-						jQuery(this).attr("readonly", true).attr("disabled", true).addClass("wpcf7c-conf");
+						jQuery(this).attr("readonly", true).addClass("wpcf7c-conf");
 						jQuery(this).after(
 							jQuery('<input type="hidden" />').attr("name", jQuery(this).attr("name")).val(jQuery(this).val()).addClass("wpcf7c-conf-hidden")
 						);
@@ -149,13 +151,24 @@ var wpcf7c_step1 = function(unit_tag){
 			parent.find("input[name=_wpcf7c]").val("step2");
 
 			// スムーズスクロール
+			setTimeout(function() { wpcf7c_scroll(unit_tag) }, 100);
+
+
+		}
+	});
+}
+
+var wpcf7c_scroll = function(unit_tag) {
+	// エラーの時などにアンカーまでスクロール
+	jQuery(jQuery.find("input[name=_wpcf7_unit_tag]")).each(function(){
+		if(jQuery(this).val() == unit_tag) {
+			var parent = jQuery(this).parents("form");
 			var speed = 1000;
 			var position = parent.offset().top;
 			if(jQuery('.wpcf7c-anchor').size() != 0) {
 				position = jQuery('.wpcf7c-anchor').offset().top;
 			}
 			jQuery("html, body").animate({scrollTop:position}, speed, "swing");
-
 		}
 	});
 }

@@ -10,6 +10,7 @@
 
 add_action( 'init', 'wpcf7c_control_init', 10 );
 function wpcf7c_control_init() {
+
 	wpcf7c_ajax_json_echo();
 
 	// キャプチャ用フックの差替え
@@ -23,7 +24,11 @@ function wpcf7c_ajax_json_echo() {
 	if (isset($_POST['_wpcf7c'])) switch($_POST["_wpcf7c"]) {
 		case "step1":
 	//		$result = apply_filters( 'wpcf7_before_send_mail', $result );
-			add_action("wpcf7_before_send_mail", "wpcf7c_before_send_mail_step1", 10, 2);
+			if(WPCF7_VERSION >= 3.9) {
+				add_filter( 'wpcf7_acceptance', 'wpcf7c_acceptance_filter', 11, 1 );
+			} else {
+				add_action("wpcf7_before_send_mail", "wpcf7c_before_send_mail_step1", 10, 2);
+			}
 
 			//$items = apply_filters( 'wpcf7_ajax_json_echo', $items, $result );
 			add_filter("wpcf7_ajax_json_echo", "wpcf7c_ajax_json_echo_step1", 10, 3);
@@ -66,14 +71,42 @@ function wpcf7c_ajax_json_echo() {
 	return;
 }
 
+/**
+ * 3.9からフックが変わったため、
+ * acceptanceの機能を利用してメール送信をスキップする。
+ *
+ * @param $accepted
+ * @return bool
+ */
+function wpcf7c_acceptance_filter($accepted) {
+	global $wpcf7_confflag;
+
+	if($accepted == false) {
+		// すでにエラー
+		return $accepted;
+	}
+
+	// これが呼ばれるときは必ずSTEP1
+	$wpcf7_confflag = true;
+	return false;
+}
+
 function wpcf7c_before_send_mail_step1(&$cls) {
 	//eyeta_log("wpcf7c_before_send_mail_step1");
 	$cls->skip_mail = true;
 }
 
 function wpcf7c_ajax_json_echo_step1($items, $result) {
-	//eyeta_log("wpcf7c_ajax_json_echo_step1");
-	if($result['mail_sent']) {
+	global $wpcf7_confflag;
+
+	$flag = false;
+	if(WPCF7_VERSION >= 3.9) {
+		$flag = $wpcf7_confflag;
+	} else {
+		$flag = $result['mail_sent'];
+	}
+
+	if($flag) {
 		if(!isset($items["onSubmit"]) || $items["onSubmit"] == null) {
 			$items["onSubmit"] = array("wpcf7c_step1('" . $_POST['_wpcf7_unit_tag'] . "');");
 		} else {
@@ -95,6 +128,16 @@ function wpcf7c_ajax_json_echo_step1($items, $result) {
 
 		unset($items['captcha']);
 
+	} else {
+		// フィルタ指定があればエラー時にアンカーまでスクロールさせる
+		$result = false;
+		if(apply_filters( 'wpcf7c_input_error_scroll', $result )) {
+			if(!isset($items["onSubmit"]) || $items["onSubmit"] == null) {
+				$items["onSubmit"] = array("wpcf7c_scroll('" . $_POST['_wpcf7_unit_tag'] . "');");
+			} else {
+				$items["onSubmit"][] = "wpcf7c_scroll('" . $_POST['_wpcf7_unit_tag'] . "');";
+			}
+		}
 	}
 
 	return $items;
@@ -131,7 +174,14 @@ function wpcf7c_captcha_validation_filter( $result, $tag ) {
 
 function wpcf7c_ajax_json_echo_step2($items, $result) {
 	//eyeta_log("wpcf7c_ajax_json_echo_step1");
-	if($result['mail_sent']) {
+	$flag = false;
+	if(WPCF7_VERSION >= 3.9) {
+		$flag = $items['mailSent'];
+	} else {
+		$flag = $result['mail_sent'];
+	}
+
+	if($flag) {
 		if(!isset($items["onSubmit"]) || $items["onSubmit"] == null) {
 			$items["onSubmit"] = array("wpcf7c_step2('" . $_POST['_wpcf7_unit_tag'] . "');");
 		} else {

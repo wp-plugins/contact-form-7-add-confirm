@@ -7,6 +7,9 @@
  * 
  */
 
+global $wpcf7_confflag;
+$wpcf7_confflag = false;
+
 require_once WPCF7C_PLUGIN_DIR . '/includes/functions.php';
 require_once WPCF7C_PLUGIN_DIR . '/includes/controller.php';
 

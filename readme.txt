@@ -4,7 +4,7 @@ Donate link:
 Tags: contact, form, contact form
 Requires at least: 3.8
 Tested up to: 3.9.1
-Stable tag: 1.3.8.13
+Stable tag: 1.3.9.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,8 +64,18 @@ An answer to that question.
 1.3.8.12
  Contact Form DBプラグインで確認ボタンクリック時に記録されてしまう問題を修正
 
-== Upgrade notice ==
 1.3.8.13
  「on_confirm」オプションを追加、確認画面表示時に独自のJavascriptを追加できるようにしました。
  編集に戻る際は、ボタンに直接イベントをつけて下さい。
+
+== Upgrade notice ==
+1.3.9.1
+ せっかくスクロールアンカーをセットできるので
+ 　add_filter("wpcf7c_input_error_scroll", '__return_true');
+ 　とすることで、入力エラーじもアンカーまでスクロールするようにしました。
+ 　要素の表示非表示を制御するとスクロールが思った場所にいかないのでインターバルを入れました。
+ Contact Form 7 3.9 に（無理矢理ですが）対応しました。
+ input type="text"などについて、disabledは付けずにreadonlyのみにしました。
+ textareaについて、入力内容が縦幅より大きい場合、確認画面で高さを伸ばすようにしました。
+
 

@@ -7,7 +7,7 @@ Author: Yuichiro ABE
 Author URI: http://www.eyeta.jp/
 Text Domain: contact-form-7-confirm
 Domain Path: /languages/
-Version: 1.3.9.1
+Version: 1.3.9.2
 */
 
 /*  Copyright 2014- Yuichiro ABE (email: y.abe at eyeta.jp)

@@ -68,6 +68,7 @@ var wpcf7c_to_step1 = function(parent, scroll){
 	var responseOutput = parent.find('div.wpcf7-response-output');
 	responseOutput.removeClass("wpcf7c-force-hide");
 	responseOutput.removeClass("wpcf7-mail-sent-ng");
+	responseOutput.css("display", "none");
 
 	parent.find(".ajax-loader").addClass("wpcf7c-elm-step2").addClass("wpcf7c-force-hide");
 

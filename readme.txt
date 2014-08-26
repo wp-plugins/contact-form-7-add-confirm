@@ -3,8 +3,8 @@ Contributors: Yuichiro ABE
 Donate link:
 Tags: contact, form, contact form
 Requires at least: 3.8
-Tested up to: 3.9.1
-Stable tag: 1.3.9.1
+Tested up to: 3.9.2
+Stable tag: 1.3.9.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,7 +68,6 @@ An answer to that question.
  「on_confirm」オプションを追加、確認画面表示時に独自のJavascriptを追加できるようにしました。
  編集に戻る際は、ボタンに直接イベントをつけて下さい。
 
-== Upgrade notice ==
 1.3.9.1
  せっかくスクロールアンカーをセットできるので
  　add_filter("wpcf7c_input_error_scroll", '__return_true');
@@ -78,4 +77,8 @@ An answer to that question.
  input type="text"などについて、disabledは付けずにreadonlyのみにしました。
  textareaについて、入力内容が縦幅より大きい場合、確認画面で高さを伸ばすようにしました。
 
+== Upgrade notice ==
+1.3.9.2
+ エラーメッセージ表示のDIVが確認画面から編集画面に戻る際に
+ display: blockのままだったものをnoneにするように修正
 

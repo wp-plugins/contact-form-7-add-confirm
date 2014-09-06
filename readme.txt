@@ -3,8 +3,8 @@ Contributors: Yuichiro ABE
 Donate link:
 Tags: contact, form, contact form
 Requires at least: 3.8
-Tested up to: 3.9.2
-Stable tag: 1.3.9.2
+Tested up to: 4.0
+Stable tag: 1.3.9.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,8 +77,16 @@ An answer to that question.
  input type="text"などについて、disabledは付けずにreadonlyのみにしました。
  textareaについて、入力内容が縦幅より大きい場合、確認画面で高さを伸ばすようにしました。
 
-== Upgrade notice ==
 1.3.9.2
  エラーメッセージ表示のDIVが確認画面から編集画面に戻る際に
  display: blockのままだったものをnoneにするように修正
+
+1.3.9.3
+ WordPress4.0
+ Contact Form 7 3.9.2に対応
+
+== Upgrade notice ==
+1.3.9.3
+ WordPress4.0
+ Contact Form 7 3.9.2に対応
 

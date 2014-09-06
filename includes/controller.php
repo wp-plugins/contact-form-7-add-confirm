@@ -24,10 +24,13 @@ function wpcf7c_ajax_json_echo() {
 	if (isset($_POST['_wpcf7c'])) switch($_POST["_wpcf7c"]) {
 		case "step1":
 	//		$result = apply_filters( 'wpcf7_before_send_mail', $result );
-			if(WPCF7_VERSION >= 3.9) {
+			if(WPCF7_VERSION == '3.9' || WPCF7_VERSION == '3.9.1') {
 				add_filter( 'wpcf7_acceptance', 'wpcf7c_acceptance_filter', 11, 1 );
+			} else if(WPCF7_VERSION >= "3.9.2"){
+				add_filter("wpcf7_skip_mail", '__return_true', 10, 2);
 			} else {
 				add_action("wpcf7_before_send_mail", "wpcf7c_before_send_mail_step1", 10, 2);
+				//add_filter( 'wpcf7_acceptance', 'wpcf7c_acceptance_filter', 11, 1 );
 			}
 
 			//$items = apply_filters( 'wpcf7_ajax_json_echo', $items, $result );
@@ -96,15 +99,24 @@ function wpcf7c_before_send_mail_step1(&$cls) {
 	$cls->skip_mail = true;
 }
 
+
 function wpcf7c_ajax_json_echo_step1($items, $result) {
 	global $wpcf7_confflag;
 
 	$flag = false;
-	if(WPCF7_VERSION >= 3.9) {
+
+	if(WPCF7_VERSION == '3.9' || WPCF7_VERSION == '3.9.1') {
 		$flag = $wpcf7_confflag;
+	} else if(WPCF7_VERSION >= "3.9.2"){
+		if('mail_sent' == $result['status']) {
+			$flag = true;
+		}
 	} else {
 		$flag = $result['mail_sent'];
 	}
+
+
+
 
 	if($flag) {
 		if(!isset($items["onSubmit"]) || $items["onSubmit"] == null) {
@@ -175,11 +187,15 @@ function wpcf7c_captcha_validation_filter( $result, $tag ) {
 function wpcf7c_ajax_json_echo_step2($items, $result) {
 	//eyeta_log("wpcf7c_ajax_json_echo_step1");
 	$flag = false;
-	if(WPCF7_VERSION >= 3.9) {
+
+	if(WPCF7_VERSION == '3.9' || WPCF7_VERSION == '3.9.1') {
+		$flag = $items['mailSent'];
+	} else if(WPCF7_VERSION >= "3.9.2"){
 		$flag = $items['mailSent'];
 	} else {
 		$flag = $result['mail_sent'];
 	}
+
 
 	if($flag) {
 		if(!isset($items["onSubmit"]) || $items["onSubmit"] == null) {

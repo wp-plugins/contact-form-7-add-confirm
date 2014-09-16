@@ -4,7 +4,7 @@ Donate link:
 Tags: contact, form, contact form
 Requires at least: 3.8
 Tested up to: 4.0
-Stable tag: 1.3.9.3
+Stable tag: 1.3.9.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -85,8 +85,10 @@ An answer to that question.
  WordPress4.0
  Contact Form 7 3.9.2に対応
 
+1.3.9.4
+ Contact Form DB 2.8.2以上に対応
+
 == Upgrade notice ==
-1.3.9.3
- WordPress4.0
- Contact Form 7 3.9.2に対応
+1.3.9.4
+ Contact Form DB 2.8.2以上に対応
 

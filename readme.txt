@@ -88,7 +88,10 @@ An answer to that question.
 1.3.9.4
  Contact Form DB 2.8.2以上に対応
 
-== Upgrade notice ==
 1.3.9.4
  Contact Form DB 2.8.2以上に対応
 
+
+== Upgrade notice ==
+1.3.9.5
+ バグFIXデバックログ出力が残っていたものを削除

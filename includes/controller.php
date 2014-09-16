@@ -50,7 +50,7 @@ function wpcf7c_ajax_json_echo() {
 						if(is_array($action["function"])) {
 							if(is_object($action["function"][0])) {
 								if(get_class($action["function"][0]) == "CF7DBPlugin") {
-									error_log(print_r($action, true));
+									//error_log(print_r($action, true));
 									if($action["function"][1] == "saveFormData") {
 										unset($wp_filter["wpcf7_before_send_mail"][$priority][$key]);
 										if ( empty($wp_filter["wpcf7_before_send_mail"][$priority]) )

@@ -4,7 +4,7 @@ Donate link:
 Tags: contact, form, contact form
 Requires at least: 3.8
 Tested up to: 4.0
-Stable tag: 1.3.9.5
+Stable tag: 1.3.9.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -91,7 +91,8 @@ An answer to that question.
 1.3.9.4
  Contact Form DB 2.8.2以上に対応
 
-
-== Upgrade notice ==
 1.3.9.5
  バグFIXデバックログ出力が残っていたものを削除
+== Upgrade notice ==
+1.3.9.6
+ Noticeが出ていた箇所を修正

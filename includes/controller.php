@@ -44,7 +44,7 @@ function wpcf7c_ajax_json_echo() {
 			global $wp_filter, $merged_filters;
 
 			//error_log(print_r($wp_filter, true));
-			if($wp_filter["wpcf7_before_send_mail"]) {
+			if(isset($wp_filter["wpcf7_before_send_mail"])) {
 				foreach($wp_filter["wpcf7_before_send_mail"] as $priority => $actions) {
 					foreach($actions as $key => $action) {
 						if(is_array($action["function"])) {

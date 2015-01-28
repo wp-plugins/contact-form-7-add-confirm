@@ -7,7 +7,7 @@ Author: Yuichiro ABE
 Author URI: http://www.eyeta.jp/
 Text Domain: contact-form-7-confirm
 Domain Path: /languages/
-Version: 4.1
+Version: 4.1.1
 */
 
 /*  Copyright 2014- Yuichiro ABE (email: y.abe at eyeta.jp)
@@ -44,7 +44,7 @@ Version: 4.1
 　戻って編集ボタンのデフォルトテキストが英語だった件を修正
 以降、readme.txtに記述
  */
-define( 'WPCF7C_VERSION', '4.1' );
+define( 'WPCF7C_VERSION', '4.1.1' );
 
 if ( ! defined( 'WPCF7C_PLUGIN_BASENAME' ) )
 	define( 'WPCF7C_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );

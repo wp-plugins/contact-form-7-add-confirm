@@ -225,6 +225,12 @@ function wpcf7c_ajax_json_echo_step2($items, $result) {
 		} else {
 			$items["onSubmit"][] = "wpcf7c_step2('" . $_POST['_wpcf7_unit_tag'] . "');";
 		}
+	} else {
+		if(!isset($items["onSubmit"]) || $items["onSubmit"] == null) {
+			$items["onSubmit"] = array("wpcf7c_step2_error('" . $_POST['_wpcf7_unit_tag'] . "');");
+		} else {
+			$items["onSubmit"][] = "wpcf7c_step2_error('" . $_POST['_wpcf7_unit_tag'] . "');";
+		}
 	}
 
 	return $items;

@@ -203,3 +203,15 @@ var wpcf7c_step2 = function(unit_tag){
 	});
 }
 
+var wpcf7c_step2_error = function(unit_tag) {
+	jQuery(jQuery.find("input[name=_wpcf7_unit_tag]")).each(function(){
+		if(jQuery(this).val() == unit_tag) {
+			var parent = jQuery(this).parents("form");
+
+			var responseOutput = parent.find('div.wpcf7-response-output');
+			responseOutput.removeClass("wpcf7c-force-hide");
+		}
+	});
+
+}
+

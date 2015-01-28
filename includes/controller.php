@@ -21,6 +21,7 @@ function wpcf7c_control_init() {
 
 
 function wpcf7c_ajax_json_echo() {
+	//error_log("wpcf7c_ajax_json_echo: " . $_POST['_wpcf7c']);
 	if (isset($_POST['_wpcf7c'])) switch($_POST["_wpcf7c"]) {
 		case "step1":
 	//		$result = apply_filters( 'wpcf7_before_send_mail', $result );
@@ -42,15 +43,28 @@ function wpcf7c_ajax_json_echo() {
 			// Contact Form DB対策
 			//remove_action( 'wpcf7_before_send_mail', 'wpcf7_flamingo_submit');
 			global $wp_filter, $merged_filters;
-
+			//error_log(print_r($wp_filter,true));
 			//error_log(print_r($wp_filter, true));
 			if(isset($wp_filter["wpcf7_before_send_mail"])) {
 				foreach($wp_filter["wpcf7_before_send_mail"] as $priority => $actions) {
 					foreach($actions as $key => $action) {
 						if(is_array($action["function"])) {
 							if(is_object($action["function"][0])) {
+								error_log(print_r($action["function"][0], true));
 								if(get_class($action["function"][0]) == "CF7DBPlugin") {
-									//error_log(print_r($action, true));
+
+									if($action["function"][1] == "saveFormData") {
+										unset($wp_filter["wpcf7_before_send_mail"][$priority][$key]);
+										if ( empty($wp_filter["wpcf7_before_send_mail"][$priority]) )
+											unset($wp_filter["wpcf7_before_send_mail"][$priority]);
+										unset($merged_filters["wpcf7_before_send_mail"]);
+									} else if($action["function"][1] == "saveCF7FormData") {
+											unset($wp_filter["wpcf7_before_send_mail"][$priority][$key]);
+											if ( empty($wp_filter["wpcf7_before_send_mail"][$priority]) )
+												unset($wp_filter["wpcf7_before_send_mail"][$priority]);
+											unset($merged_filters["wpcf7_before_send_mail"]);
+									}
+								} else if(get_class($action["function"][0]) == 'CFDBIntegrationContactForm7') {
 									if($action["function"][1] == "saveFormData") {
 										unset($wp_filter["wpcf7_before_send_mail"][$priority][$key]);
 										if ( empty($wp_filter["wpcf7_before_send_mail"][$priority]) )

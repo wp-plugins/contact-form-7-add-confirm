@@ -191,10 +191,14 @@ function wpcf7c_captcha_validation_filter( $result, $tag ) {
 
 	$prefix = isset( $_POST[$captchac] ) ? (string) $_POST[$captchac] : '';
 	$response = isset( $_POST[$name] ) ? (string) $_POST[$name] : '';
+	$response = wpcf7_canonicalize( $response );
 
 	if ( 0 == strlen( $prefix ) || ! wpcf7_check_captcha( $prefix, $response ) ) {
-		$result['valid'] = false;
-		$result['reason'][$name] = wpcf7_get_message( 'captcha_not_match' );
+		$response = wpcf7_canonicalize( $response );
+
+		if ( 0 == strlen( $prefix ) || ! wpcf7_check_captcha( $prefix, $response ) ) {
+			$result->invalidate( $tag, wpcf7_get_message( 'captcha_not_match' ) );
+		}
 	}
 
 	if(0 != strlen( $prefix ) && $_POST["_wpcf7c"] == "step1") {

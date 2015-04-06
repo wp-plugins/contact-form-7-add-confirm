@@ -7,7 +7,7 @@ Author: Yuichiro ABE
 Author URI: http://www.eyeta.jp/
 Text Domain: contact-form-7-confirm
 Domain Path: /languages/
-Version: 4.1.1
+Version: 4.1.2
 */
 
 /*  Copyright 2014- Yuichiro ABE (email: y.abe at eyeta.jp)
@@ -27,24 +27,8 @@ Version: 4.1.1
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-/*
 
-1.3.7
-　Contact Form 7 3.7 で構築
-1.3.7.1
-　input type="file"の不具合を修正
-1.3.8
-　編集に戻るときも頭出し
-　Contact Form 7 3.7.2で動作確認
-1.3.8.1 
-　checkboxでのバグの修正
-　「wpcf7c-anchor」クラスを指定しておくと確認、戻るなどの際の
-　　頭出しの座標に利用されるようにしました。
-1.3.8.3
-　戻って編集ボタンのデフォルトテキストが英語だった件を修正
-以降、readme.txtに記述
- */
-define( 'WPCF7C_VERSION', '4.1.1' );
+define( 'WPCF7C_VERSION', '4.1.2' );
 
 if ( ! defined( 'WPCF7C_PLUGIN_BASENAME' ) )
 	define( 'WPCF7C_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );

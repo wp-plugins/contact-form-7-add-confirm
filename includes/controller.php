@@ -17,6 +17,13 @@ function wpcf7c_control_init() {
 	remove_filter( 'wpcf7_validate_captchar', 'wpcf7_captcha_validation_filter', 10 );
 	add_filter( 'wpcf7_validate_captchar', 'wpcf7c_captcha_validation_filter', 10, 2 );
 
+
+	if (isset($_POST['_wpcf7c']) && 'step1' == $_POST["_wpcf7c"]) {
+		remove_filter( 'wpcf7_ajax_onload', 'wpcf7_quiz_ajax_refill' );
+		remove_filter( 'wpcf7_ajax_json_echo', 'wpcf7_quiz_ajax_refill' );
+	}
+
+
 }
 
 

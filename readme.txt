@@ -4,7 +4,7 @@ Donate link:
 Tags: contact, form, contact form
 Requires at least: 3.8
 Tested up to: 4.2.2
-Stable tag: 4.1.3
+Stable tag: 4.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -110,8 +110,11 @@ An answer to that question.
 4.1.3
  quizに対応
 
+4.2.1
+ Contact Form 7 4.2.1に対応
+
 == Upgrade notice ==
 
-4.1.3
- quizに対応
+4.2.1
+ Contact Form 7 4.2.1に対応
 
